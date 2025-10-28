@@ -10,6 +10,15 @@ An in-depth paragraph about your project and overview of use.
 
 ## Getting Started
 
+Install via pip in a conda env for training and inference (works with python 3.11):
+pip install llama-cookbook
+
+
+Install the below in a separate conda env for evaluation (works with python 3.11):
+torch==2.8.0
+the requirements.txt file in mt-rag-benchmark/scripts/evaluation
+Note, use as many cores as possible when installing flash-attn. I used 16 cores on hipergator with 32GB ram. More info in the IBM repo's readme.
+
 ### Dependencies
 
 * Describe any prerequisites, libraries, OS version, etc., needed before installing program.
