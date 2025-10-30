@@ -1,3 +1,19 @@
+"""
+# Evaluation Metrics Summary
+
+This document explains each metric reported in `metrics_summary.csv`.
+
+| Metric | Description | Importance |
+| ------- | ------------ | ----------- |
+| **Recall** | Proportion of relevant docs retrieved. | Measures retriever coverage. |
+| **RB_agg** | Retrieval-based aggregate combining recall@k, precision, etc. | Captures retriever effectiveness. |
+| **RB_llm** | Retrieval quality judged by LLM. | Semantic retrieval quality. |
+| **RL_F** | ROUGE-L F1 score. | Generation faithfulness. |
+| **RB_overall** | Weighted combination of retrieval + generation metrics. | Overall RAG performance. |
+
+See `agg_metrics.py` for how `RB_overall` is computed.
+"""
+
 import json
 import pandas as pd
 import numpy as np
