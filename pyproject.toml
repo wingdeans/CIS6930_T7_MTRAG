@@ -3,13 +3,14 @@ name = "CIS6930_T7_MTRAG"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = "==3.12"
 dependencies = [
     "accelerate==1.4.0",
     "beautifulsoup4>=4.14.2",
     "bert-score>=0.3.13",
     "bitsandbytes==0.47.0",
     "evaluate==0.4.3",
+    "flash-attn",
     "langchain==0.2.17",
     "langchain-community==0.2.19",
     "llama-cookbook>=0.0.5.post1",
@@ -24,3 +25,6 @@ dependencies = [
     "torch==2.8.0",
     "tqdm>=4.67.1",
 ]
+
+[tool.uv.sources]
+flash-attn = { url = "https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3/flash_attn-2.8.3+cu12torch2.8cxx11abiTRUE-cp312-cp312-linux_x86_64.whl" }
