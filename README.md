@@ -5,9 +5,7 @@ Fine-tuned Llama models on the MTRAG benchmark
 ## Getting Started
 Training:
 ```bash
-python finetune.py --modelname $MODEL_NAME --raft $RAFT --cot $COT \
-    --epochs 11 --lr 3e-4 --batchsize 1 --gradsteps 4 \
-    --contextlength 8192 --lorarank 8 --loraalpha 32
+uv run finetune.py --modelname $MODEL_NAME --raft $RAFT --cot $COT
 ```
 
 Evaluation:
