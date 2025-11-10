@@ -1,0 +1,49 @@
+# Copyright (c) Meta Platforms, Inc. and affiliates.
+# This software may be used and distributed according to the terms of the Llama 2 Community License Agreement.
+
+import torch
+
+from llama_cookbook.data.concatenator import ConcatDataset
+from llama_cookbook.datasets import  DATALOADER_COLLATE_FUNC
+from llama_cookbook.utils.config_utils import get_dataloader_kwargs
+from mtrag_dataset import get_preprocessed_mtrag as get_mtrag
+
+def get_preprocessed_dataset(
+        tokenizer, split: str = "train",raft=0,cot=0
+) -> torch.utils.data.Dataset:
+
+    return get_mtrag(
+        tokenizer,
+        split,
+        raft,
+        cot
+    )
+
+
+def get_custom_data_collator(
+        dataset_processer, dataset_config
+) -> torch.utils.data.Dataset:
+    if not dataset_config.dataset in DATALOADER_COLLATE_FUNC:
+        return None
+
+    return DATALOADER_COLLATE_FUNC[dataset_config.dataset](
+        dataset_processer,
+        dataset_config
+    )
+
+
+def get_dataloader(tokenizer, train_config, raft=0,cot=0, split: str = "train"):
+    dataset = get_preprocessed_dataset(tokenizer, split,raft,cot)
+    dl_kwargs = get_dataloader_kwargs(train_config, dataset, tokenizer, split)
+
+    if split == "train" and train_config.batching_strategy == "packing":
+        dataset = ConcatDataset(dataset, chunk_size=train_config.context_length)
+
+    # Create data loader
+    dataloader = torch.utils.data.DataLoader(
+        dataset,
+        num_workers=train_config.num_workers_dataloader,
+        pin_memory=True,
+        **dl_kwargs,
+    )
+    return dataloader
