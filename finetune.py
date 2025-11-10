@@ -19,9 +19,9 @@ import argparse
 import hf_login
 
 # Huggingface cache dirs - do not change
-os.environ['HF_HOME'] = '/blue/cis6930/nitinv/hf_cache/'
-os.environ['TRANSFORMERS_CACHE'] = '/blue/cis6930/nitinv/hf_cache/'
-os.environ['HF_DATASETS_CACHE'] = '/blue/cis6930/nitinv/hf_cache/'
+os.environ['HF_HOME'] = '/blue/cis6930/team7/hf_cache/'
+os.environ['TRANSFORMERS_CACHE'] = '/blue/cis6930/team7/hf_cache/'
+os.environ['HF_DATASETS_CACHE'] = '/blue/cis6930/team7/hf_cache/'
 
 
 
@@ -90,7 +90,7 @@ def training(output_dir,model_name,raft,cot=0,num_epochs=10,batch_size=1,grad_st
                 quantization_config=config,
                 use_cache=False,
                 attn_implementation="sdpa" if train_config.use_fast_kernels else None,
-                torch_dtype=torch.float32, cache_dir='/blue/cis6930/nitinv/hf_cache/'
+                torch_dtype=torch.float32, cache_dir='/blue/cis6930/team7/hf_cache/'
             )
 
     tokenizer = AutoTokenizer.from_pretrained(train_config.model_name)
@@ -192,7 +192,7 @@ def inference(peft_output_dir,model_name,raft,cot=0,use_fast_kernels=True):
         #quantization_config=config,
         use_cache=False,
         attn_implementation="sdpa" if use_fast_kernels else None,
-        torch_dtype=torch.float16, cache_dir='/blue/cis6930/nitinv/hf_cache/'
+        torch_dtype=torch.float16, cache_dir='/blue/cis6930/team7/hf_cache/'
     )
 
     print ('Loading PEFT params')
