@@ -33,7 +33,7 @@ pip install llama-cookbook
 Install the below in a separate conda env for evaluation (tested on python 3.11):
 - `torch==2.8.0`
 - the `requirements.txt` file in `mt-rag-benchmark/scripts/evaluation`
-Note, use as many cores as possible when installing flash-attn. I used 16 cores on hipergator with 32GB ram. A sample slurm script has been included in this folder. 
+Note, use as many cores as possible when installing flash-attn. I used 16 cores on hipergator with 32GB ram. A sample slurm script has been included in this folder `sample_flash_attn_install_script.sh`
 
 ### Dependencies
 
