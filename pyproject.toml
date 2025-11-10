@@ -1,0 +1,26 @@
+[project]
+name = "CIS6930_T7_MTRAG"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "accelerate==1.4.0",
+    "beautifulsoup4>=4.14.2",
+    "bert-score>=0.3.13",
+    "bitsandbytes==0.47.0",
+    "evaluate==0.4.3",
+    "langchain==0.2.17",
+    "langchain-community==0.2.19",
+    "llama-cookbook>=0.0.5.post1",
+    "lxml>=6.0.2",
+    "pandas>=2.3.3",
+    "protobuf==5.29.3",
+    "pydantic==2.11.7",
+    "pytrec-eval==0.5",
+    "ragas==0.3.3",
+    "rouge-score>=0.1.2",
+    "sentencepiece==0.2.0",
+    "torch==2.8.0",
+    "tqdm>=4.67.1",
+]
