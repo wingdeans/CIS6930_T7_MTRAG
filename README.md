@@ -2,6 +2,8 @@
 
 Fine-tuned Llama models on the MTRAG benchmark
 
+Checkpoints available on [`hf:wingdeans/CIS6930_T7_MTRAG`](https://huggingface.co/wingdeans/CIS6930_T7_MTRAG)
+
 ## Getting Started
 Training:
 ```bash
